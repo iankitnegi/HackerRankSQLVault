@@ -86,22 +86,57 @@ FROM station
 WHERE RIGHT(city, 1) IN ('a', 'e', 'i', 'o', 'u');  
 
 ## Weather Observation Station 8
+SELECT DISTINCT city    
+FROM station    
+WHERE LEFT(city, 1) IN ('a', 'e', 'i', 'o', 'u') AND RIGHT(city, 1) IN ('a', 'e', 'i', 'o', 'u');    
 
+## Weather Observation Station 9
+SELECT DISTINCT city    
+FROM station    
+WHERE LEFT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u');    
 
+## Weather Observation Station 10
+SELECT DISTINCT city    
+FROM station    
+WHERE RIGHT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u');    
 
+## Weather Observation Station 11
+SELECT DISTINCT city    
+FROM station    
+WHERE LEFT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u') OR RIGHT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u');    
 
+## Weather Observation Station 12
+SELECT DISTINCT city    
+FROM station    
+WHERE LEFT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u') AND RIGHT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u');    
 
+## Higher Than 75 Marks
+SELECT name    
+FROM students    
+WHERE marks>75    
+ORDER BY RIGHT(name, 3), id;    
 
+## Employee Names
+SELECT name    
+FROM employee    
+ORDER BY name;    
 
+## Employee Salaries
+SELECT name    
+FROM employee    
+WHERE salary>2000 AND months<10    
+ORDER BY employee_id;    
 
-
-
-
-
-
-
-
-
-
-
+## Type of Triangle    
+SELECT     
+    CASE    
+        WHEN A+B>C AND B+C>A AND A+C>B THEN    
+            CASE    
+                WHEN A=B AND B=C AND C=A THEN "Equilateral"    
+                WHEN A=B OR B=C OR C=A THEN "Isosceles"    
+                ELSE "Scalene"    
+            END    
+        ELSE "Not A Triangle"    
+    END    
+FROM triangles;    
 
