@@ -49,7 +49,43 @@ SELECT COUNT(city) - COUNT(DISTINCT city)
 FROM station;  
 
 ## Weather Observation Station 5
+SELECT city, LENGTH(city)  
+FROM station  
+WHERE LENGTH(city) = (  
+    SELECT MIN(LENGTH(city)) FROM station  
+)  
+ORDER BY city  
+LIMIT 1;  
+SELECT city, LENGTH(city)  
+FROM station  
+WHERE LENGTH(city) = (  
+    SELECT MIN(LENGTH(city)) FROM station  
+)  
+ORDER BY city  
+LIMIT 1;  
 
+OR  
+
+(SELECT city, LENGTH(city) AS city_len  
+FROM station  
+ORDER BY LENGTH(city), city  
+LIMIT 1) UNION  
+(SELECT city, LENGTH(city) AS city_len  
+FROM station  
+ORDER BY LENGTH(city) DESC, city  
+LIMIT 1 )  
+
+## Weather Observation Station 6
+SELECT DISTINCT city    
+FROM station    
+WHERE city LIKE 'a%' OR city LIKE 'e%' OR city LIKE 'i%' OR city LIKE 'o%' OR city LIKE 'u%';    
+
+## Weather Observation Station 7
+SELECT DISTINCT city  
+FROM station  
+WHERE RIGHT(city, 1) IN ('a', 'e', 'i', 'o', 'u');  
+
+## Weather Observation Station 8
 
 
 
