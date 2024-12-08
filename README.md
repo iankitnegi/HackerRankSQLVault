@@ -35,6 +35,22 @@ SELECT name
 FROM city  
 WHERE countrycode LIKE 'JPN';  
 
+## Weather Observation Station 1
+SELECT city, state  
+FROM station;  
+
+## Weather Observation Station 3
+SELECT DISTINCT city  
+FROM station  
+WHERE id%2=0;  
+
+## Weather Observation Station 4
+SELECT COUNT(city) - COUNT(DISTINCT city)  
+FROM station;  
+
+## Weather Observation Station 5
+
+
 
 
 
